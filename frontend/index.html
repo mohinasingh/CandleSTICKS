@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CandleSTICKS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">Candle<span>STICKS</span></div>
+    <div class="tagline">CANDLESTICK PATTERN RECOGNITION SYSTEM</div>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <h1>Understand the Market.</h1>
+        <h2>One Candle at a Time.</h2>
+        <p>Analyze stock market candles and identify candlestick patterns.</p>
+    </section>
+
+    <!-- AUTOMATIC STOCK ANALYSIS -->
+    <section class="search-box">
+        <h3>Stock Analysis</h3>
+        <p>Enter a stock symbol to automatically fetch and analyze its latest 30 candles.</p>
+
+        <div class="search-row">
+            <input
+                type="text"
+                id="symbol"
+                placeholder="Enter stock symbol (e.g. TCS)"
+                autocomplete="off"
+            >
+            <button id="analyzeBtn" onclick="analyzeStock()">
+                ANALYZE STOCK
+            </button>
+        </div>
+
+        <p class="hint">Indian NSE stocks are supported by default.</p>
+    </section>
+
+    <div id="loading" style="display:none">
+        Analyzing stock data...
+    </div>
+
+    <div id="error" role="alert"></div>
+
+    <section id="results" style="display:none">
+        <h3>Stock Analysis Results</h3>
+        <div id="stockInfo"></div>
+        <div id="patterns"></div>
+    </section>
+
+
+    <!-- MANUAL CANDLE ANALYSIS -->
+    <section class="search-box manual-section">
+        <h3>Manual Candle Analysis</h3>
+        <p>Enter your own Open, High, Low and Close prices.</p>
+
+        <div id="candleInputs">
+
+            <div class="candle-input-row">
+                <h4>Candle 1</h4>
+
+                <div class="manual-grid">
+                    <input type="number" step="any" class="open-price" placeholder="Open" required>
+                    <input type="number" step="any" class="high-price" placeholder="High" required>
+                    <input type="number" step="any" class="low-price" placeholder="Low" required>
+                    <input type="number" step="any" class="close-price" placeholder="Close" required>
+                    <input type="number" step="any" class="volume-price" placeholder="Volume (optional)" value="0">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="manual-buttons">
+            <button type="button" id="addCandleBtn">
+                + ADD ANOTHER CANDLE
+            </button>
+
+            <button type="button" id="analyzeManualBtn" onclick="analyzeManualCandles()">
+                ANALYZE MY CANDLES
+            </button>
+        </div>
+
+        <p class="hint">
+            Enter candles in chronological order, oldest first.
+            Multiple candles allow two-candle and three-candle pattern detection.
+        </p>
+    </section>
+
+    <div id="manualLoading" style="display:none">
+        Analyzing your candles...
+    </div>
+
+    <div id="manualError" role="alert"></div>
+
+    <section id="manualResults" style="display:none">
+        <h3>Manual Analysis Results</h3>
+        <div id="manualStockInfo"></div>
+        <div id="manualPatterns"></div>
+    </section>
+
+</main>
+
+<footer>
+    CandleSTICKS © 2026 | Candlestick Pattern Recognition System
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
